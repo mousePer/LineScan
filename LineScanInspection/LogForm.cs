@@ -108,6 +108,7 @@ namespace LineScanInspection
         {
             if(!int.TryParse(txt_pateCount.Text, out int pageIndex))
             {
+                this.ShowWarningTip("请输入页码或正确页码");
                 return;
             }
             if (pageIndex > totalPage)
