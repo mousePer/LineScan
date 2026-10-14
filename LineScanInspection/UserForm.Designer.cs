@@ -28,14 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.uiGroupBox1 = new Sunny.UI.UIGroupBox();
             this.uiGroupBox4 = new Sunny.UI.UIGroupBox();
             this.uiDataGridView1 = new Sunny.UI.UIDataGridView();
+            this.selectCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.UId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AccountNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IOManage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LogManage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CountManage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserManage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CameraManage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.uiGroupBox3 = new Sunny.UI.UIGroupBox();
             this.uiButton4 = new Sunny.UI.UIButton();
@@ -50,17 +61,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.uiAvatar1 = new Sunny.UI.UIAvatar();
-            this.selectCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.UId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AccountNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IOManage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LogManage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CountManage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UserManage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CameraManage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uiGroupBox1.SuspendLayout();
             this.uiGroupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiDataGridView1)).BeginInit();
@@ -80,7 +80,7 @@
             this.uiGroupBox1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiGroupBox1.Name = "uiGroupBox1";
             this.uiGroupBox1.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.uiGroupBox1.Size = new System.Drawing.Size(1115, 545);
+            this.uiGroupBox1.Size = new System.Drawing.Size(1115, 759);
             this.uiGroupBox1.TabIndex = 0;
             this.uiGroupBox1.Text = "  ";
             this.uiGroupBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -88,14 +88,14 @@
             // uiGroupBox4
             // 
             this.uiGroupBox4.Controls.Add(this.uiDataGridView1);
-            this.uiGroupBox4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uiGroupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiGroupBox4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiGroupBox4.Location = new System.Drawing.Point(293, 32);
             this.uiGroupBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiGroupBox4.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiGroupBox4.Name = "uiGroupBox4";
             this.uiGroupBox4.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.uiGroupBox4.Size = new System.Drawing.Size(822, 513);
+            this.uiGroupBox4.Size = new System.Drawing.Size(822, 727);
             this.uiGroupBox4.TabIndex = 1;
             this.uiGroupBox4.Text = "用户列表";
             this.uiGroupBox4.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -103,18 +103,18 @@
             // uiDataGridView1
             // 
             this.uiDataGridView1.AllowUserToAddRows = false;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.uiDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.uiDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.uiDataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.uiDataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.uiDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.uiDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.uiDataGridView1.ColumnHeadersHeight = 32;
             this.uiDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.uiDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -129,14 +129,14 @@
             this.CountManage,
             this.UserManage,
             this.CameraManage});
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.uiDataGridView1.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.uiDataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.uiDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiDataGridView1.EnableHeadersVisualStyles = false;
             this.uiDataGridView1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -144,22 +144,90 @@
             this.uiDataGridView1.Location = new System.Drawing.Point(0, 32);
             this.uiDataGridView1.Name = "uiDataGridView1";
             this.uiDataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.uiDataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiDataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.uiDataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiDataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.uiDataGridView1.RowTemplate.Height = 23;
             this.uiDataGridView1.SelectedIndex = -1;
-            this.uiDataGridView1.Size = new System.Drawing.Size(822, 481);
+            this.uiDataGridView1.Size = new System.Drawing.Size(822, 695);
             this.uiDataGridView1.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.uiDataGridView1.TabIndex = 0;
+            // 
+            // selectCheck
+            // 
+            this.selectCheck.HeaderText = "选择";
+            this.selectCheck.Name = "selectCheck";
+            // 
+            // UId
+            // 
+            this.UId.DataPropertyName = "UId";
+            this.UId.HeaderText = "UId";
+            this.UId.Name = "UId";
+            this.UId.Visible = false;
+            // 
+            // AId
+            // 
+            this.AId.DataPropertyName = "AId";
+            this.AId.HeaderText = "AId";
+            this.AId.Name = "AId";
+            this.AId.Visible = false;
+            // 
+            // Password
+            // 
+            this.Password.DataPropertyName = "Password";
+            this.Password.HeaderText = "Password";
+            this.Password.Name = "Password";
+            this.Password.Visible = false;
+            // 
+            // UserName
+            // 
+            this.UserName.DataPropertyName = "UserName";
+            this.UserName.HeaderText = "用户姓名";
+            this.UserName.Name = "UserName";
+            // 
+            // AccountNum
+            // 
+            this.AccountNum.DataPropertyName = "AccountNum";
+            this.AccountNum.HeaderText = "用户账号";
+            this.AccountNum.Name = "AccountNum";
+            // 
+            // IOManage
+            // 
+            this.IOManage.DataPropertyName = "IOManage";
+            this.IOManage.HeaderText = "IO管理";
+            this.IOManage.Name = "IOManage";
+            // 
+            // LogManage
+            // 
+            this.LogManage.DataPropertyName = "LogManage";
+            this.LogManage.HeaderText = "日志管理";
+            this.LogManage.Name = "LogManage";
+            // 
+            // CountManage
+            // 
+            this.CountManage.DataPropertyName = "CountManage";
+            this.CountManage.HeaderText = "产能管理";
+            this.CountManage.Name = "CountManage";
+            // 
+            // UserManage
+            // 
+            this.UserManage.DataPropertyName = "UserManage";
+            this.UserManage.HeaderText = "用户管理";
+            this.UserManage.Name = "UserManage";
+            // 
+            // CameraManage
+            // 
+            this.CameraManage.DataPropertyName = "CameraManage";
+            this.CameraManage.HeaderText = "相机管理";
+            this.CameraManage.Name = "CameraManage";
             // 
             // uiPanel1
             // 
@@ -171,7 +239,7 @@
             this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.Size = new System.Drawing.Size(293, 513);
+            this.uiPanel1.Size = new System.Drawing.Size(293, 727);
             this.uiPanel1.TabIndex = 0;
             this.uiPanel1.Text = null;
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -182,14 +250,14 @@
             this.uiGroupBox3.Controls.Add(this.uiButton3);
             this.uiGroupBox3.Controls.Add(this.uiButton2);
             this.uiGroupBox3.Controls.Add(this.btn_addUser);
-            this.uiGroupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.uiGroupBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.uiGroupBox3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiGroupBox3.Location = new System.Drawing.Point(0, 261);
+            this.uiGroupBox3.Location = new System.Drawing.Point(0, 257);
             this.uiGroupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiGroupBox3.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiGroupBox3.Name = "uiGroupBox3";
             this.uiGroupBox3.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.uiGroupBox3.Size = new System.Drawing.Size(293, 252);
+            this.uiGroupBox3.Size = new System.Drawing.Size(293, 274);
             this.uiGroupBox3.TabIndex = 0;
             this.uiGroupBox3.Text = "用户操作";
             this.uiGroupBox3.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -352,79 +420,11 @@
             this.uiAvatar1.TabIndex = 0;
             this.uiAvatar1.Text = "uiAvatar1";
             // 
-            // selectCheck
-            // 
-            this.selectCheck.HeaderText = "选择";
-            this.selectCheck.Name = "selectCheck";
-            // 
-            // UId
-            // 
-            this.UId.DataPropertyName = "UId";
-            this.UId.HeaderText = "UId";
-            this.UId.Name = "UId";
-            this.UId.Visible = false;
-            // 
-            // AId
-            // 
-            this.AId.DataPropertyName = "AId";
-            this.AId.HeaderText = "AId";
-            this.AId.Name = "AId";
-            this.AId.Visible = false;
-            // 
-            // Password
-            // 
-            this.Password.DataPropertyName = "Password";
-            this.Password.HeaderText = "Password";
-            this.Password.Name = "Password";
-            this.Password.Visible = false;
-            // 
-            // UserName
-            // 
-            this.UserName.DataPropertyName = "UserName";
-            this.UserName.HeaderText = "用户姓名";
-            this.UserName.Name = "UserName";
-            // 
-            // AccountNum
-            // 
-            this.AccountNum.DataPropertyName = "AccountNum";
-            this.AccountNum.HeaderText = "用户账号";
-            this.AccountNum.Name = "AccountNum";
-            // 
-            // IOManage
-            // 
-            this.IOManage.DataPropertyName = "IOManage";
-            this.IOManage.HeaderText = "IO管理";
-            this.IOManage.Name = "IOManage";
-            // 
-            // LogManage
-            // 
-            this.LogManage.DataPropertyName = "LogManage";
-            this.LogManage.HeaderText = "日志管理";
-            this.LogManage.Name = "LogManage";
-            // 
-            // CountManage
-            // 
-            this.CountManage.DataPropertyName = "CountManage";
-            this.CountManage.HeaderText = "产能管理";
-            this.CountManage.Name = "CountManage";
-            // 
-            // UserManage
-            // 
-            this.UserManage.DataPropertyName = "UserManage";
-            this.UserManage.HeaderText = "用户管理";
-            this.UserManage.Name = "UserManage";
-            // 
-            // CameraManage
-            // 
-            this.CameraManage.DataPropertyName = "CameraManage";
-            this.CameraManage.HeaderText = "相机管理";
-            this.CameraManage.Name = "CameraManage";
-            // 
             // UserForm
             // 
             this.AllowShowTitle = false;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1115, 545);
+            this.ClientSize = new System.Drawing.Size(1115, 759);
             this.Controls.Add(this.uiGroupBox1);
             this.Name = "UserForm";
             this.Padding = new System.Windows.Forms.Padding(0);

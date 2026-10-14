@@ -20,7 +20,7 @@ namespace LineScanInspection
     {
         List<LogLevelVO> logLevelVOs = new List<LogLevelVO>();
         int pageIndex = 1;
-        int pageSize = 15;
+        int pageSize = 24;
         int totalCount = 0;
         int totalPage = 0;
         public LogForm()

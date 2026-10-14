@@ -1,4 +1,4 @@
-﻿    using LineScanInspection.entity;
+﻿using LineScanInspection.entity;
 using LineScanInspection.entity.vo;
 using LineScanInspection.Help;
 using Sunny.UI;

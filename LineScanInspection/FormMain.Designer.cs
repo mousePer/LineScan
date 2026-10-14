@@ -160,7 +160,7 @@
             this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.Size = new System.Drawing.Size(1115, 545);
+            this.uiPanel1.Size = new System.Drawing.Size(1115, 609);
             this.uiPanel1.TabIndex = 1;
             this.uiPanel1.Text = "  ";
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -168,7 +168,7 @@
             // FormMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1115, 695);
+            this.ClientSize = new System.Drawing.Size(1115, 759);
             this.Controls.Add(this.uiPanel1);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;

@@ -46,6 +46,7 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.uiButton1 = new Sunny.UI.UIButton();
             this.uiGroupBox1.SuspendLayout();
             this.uiPanel1.SuspendLayout();
             this.uiGroupBox2.SuspendLayout();
@@ -67,7 +68,7 @@
             this.uiGroupBox1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiGroupBox1.Name = "uiGroupBox1";
             this.uiGroupBox1.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.uiGroupBox1.Size = new System.Drawing.Size(1115, 545);
+            this.uiGroupBox1.Size = new System.Drawing.Size(1115, 759);
             this.uiGroupBox1.TabIndex = 0;
             this.uiGroupBox1.Text = "相机管理";
             this.uiGroupBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -82,7 +83,7 @@
             this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.Size = new System.Drawing.Size(378, 513);
+            this.uiPanel1.Size = new System.Drawing.Size(378, 727);
             this.uiPanel1.TabIndex = 0;
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -96,7 +97,7 @@
             this.uiGroupBox2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiGroupBox2.Name = "uiGroupBox2";
             this.uiGroupBox2.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.uiGroupBox2.Size = new System.Drawing.Size(378, 251);
+            this.uiGroupBox2.Size = new System.Drawing.Size(378, 340);
             this.uiGroupBox2.TabIndex = 0;
             this.uiGroupBox2.Text = "实时图像";
             this.uiGroupBox2.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -106,12 +107,12 @@
             this.uiGroupBox3.Controls.Add(this.pictureBox2);
             this.uiGroupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.uiGroupBox3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiGroupBox3.Location = new System.Drawing.Point(0, 261);
+            this.uiGroupBox3.Location = new System.Drawing.Point(0, 343);
             this.uiGroupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiGroupBox3.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiGroupBox3.Name = "uiGroupBox3";
             this.uiGroupBox3.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.uiGroupBox3.Size = new System.Drawing.Size(378, 252);
+            this.uiGroupBox3.Size = new System.Drawing.Size(378, 384);
             this.uiGroupBox3.TabIndex = 1;
             this.uiGroupBox3.Text = "作业图像";
             this.uiGroupBox3.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -122,6 +123,7 @@
             this.uiGroupBox4.Controls.Add(this.uiLabel2);
             this.uiGroupBox4.Controls.Add(this.uiTextBox1);
             this.uiGroupBox4.Controls.Add(this.uiLabel1);
+            this.uiGroupBox4.Controls.Add(this.uiButton1);
             this.uiGroupBox4.Controls.Add(this.uiButton3);
             this.uiGroupBox4.Controls.Add(this.uiButton2);
             this.uiGroupBox4.Controls.Add(this.btn_open);
@@ -161,24 +163,26 @@
             this.uiButton2.TabIndex = 0;
             this.uiButton2.Text = "选择照片";
             this.uiButton2.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiButton2.Click += new System.EventHandler(this.uiButton2_Click);
             // 
             // uiButton3
             // 
             this.uiButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiButton3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton3.Location = new System.Drawing.Point(619, 35);
+            this.uiButton3.Location = new System.Drawing.Point(529, 35);
             this.uiButton3.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton3.Name = "uiButton3";
             this.uiButton3.Size = new System.Drawing.Size(100, 35);
             this.uiButton3.TabIndex = 0;
             this.uiButton3.Text = "获取当前照片";
             this.uiButton3.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiButton3.Click += new System.EventHandler(this.uiButton3_Click);
             // 
             // uiLabel1
             // 
             this.uiLabel1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.uiLabel1.Location = new System.Drawing.Point(248, 42);
+            this.uiLabel1.Location = new System.Drawing.Point(233, 43);
             this.uiLabel1.Name = "uiLabel1";
             this.uiLabel1.Size = new System.Drawing.Size(66, 23);
             this.uiLabel1.TabIndex = 1;
@@ -188,7 +192,7 @@
             // 
             this.uiTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.uiTextBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiTextBox1.Location = new System.Drawing.Point(307, 37);
+            this.uiTextBox1.Location = new System.Drawing.Point(276, 38);
             this.uiTextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiTextBox1.MinimumSize = new System.Drawing.Size(1, 16);
             this.uiTextBox1.Name = "uiTextBox1";
@@ -203,7 +207,7 @@
             // 
             this.uiLabel2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.uiLabel2.Location = new System.Drawing.Point(435, 42);
+            this.uiLabel2.Location = new System.Drawing.Point(380, 43);
             this.uiLabel2.Name = "uiLabel2";
             this.uiLabel2.Size = new System.Drawing.Size(66, 23);
             this.uiLabel2.TabIndex = 1;
@@ -213,7 +217,7 @@
             // 
             this.uiTextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.uiTextBox2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiTextBox2.Location = new System.Drawing.Point(494, 37);
+            this.uiTextBox2.Location = new System.Drawing.Point(425, 38);
             this.uiTextBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiTextBox2.MinimumSize = new System.Drawing.Size(1, 16);
             this.uiTextBox2.Name = "uiTextBox2";
@@ -237,7 +241,7 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(378, 121);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(737, 424);
+            this.listView1.Size = new System.Drawing.Size(737, 638);
             this.listView1.TabIndex = 2;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -247,7 +251,8 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 32);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(378, 219);
+            this.pictureBox1.Size = new System.Drawing.Size(378, 308);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -256,7 +261,8 @@
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Location = new System.Drawing.Point(0, 32);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(378, 220);
+            this.pictureBox2.Size = new System.Drawing.Size(378, 352);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
@@ -275,11 +281,24 @@
             this.columnHeader3.Text = "日志信息";
             this.columnHeader3.Width = 533;
             // 
+            // uiButton1
+            // 
+            this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiButton1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiButton1.Location = new System.Drawing.Point(634, 35);
+            this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiButton1.Name = "uiButton1";
+            this.uiButton1.Size = new System.Drawing.Size(100, 35);
+            this.uiButton1.TabIndex = 0;
+            this.uiButton1.Text = "Halcon";
+            this.uiButton1.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiButton1.Click += new System.EventHandler(this.uiButton1_Click);
+            // 
             // CameraForm
             // 
             this.AllowShowTitle = false;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1115, 545);
+            this.ClientSize = new System.Drawing.Size(1115, 759);
             this.Controls.Add(this.uiGroupBox1);
             this.Name = "CameraForm";
             this.Padding = new System.Windows.Forms.Padding(0);
@@ -317,5 +336,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private Sunny.UI.UIButton uiButton1;
     }
 }

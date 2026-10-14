@@ -1,4 +1,5 @@
-﻿using MvCameraControl;
+﻿using HalconDotNet;
+using MvCameraControl;
 using Sunny.UI.Win32;
 using System;
 using System.Collections.Generic;
@@ -34,10 +35,11 @@ namespace LineScanInspection.Help
         /// 初始化SDK
         /// </summary>
 
-        public Action<IDevice,IFrameOut> showImageCallBack
+        public Action<IDevice, IFrameOut> showImageCallBack
             ;
 
-        public HKServerHelper() {
+        public HKServerHelper()
+        {
 
             SDKSystem.Initialize();
         }
@@ -73,7 +75,7 @@ namespace LineScanInspection.Help
                 return AppResultHelper<bool>.Fail("请选择设备！");
             }
 
-            if (deviceInfoList.Count == 0 )
+            if (deviceInfoList.Count == 0)
             {
                 return AppResultHelper<bool>.Fail("No device, please select");
             }
@@ -118,7 +120,7 @@ namespace LineScanInspection.Help
                     }
                 }
             }
-            Enabled = true;  
+            Enabled = true;
             // ch:设置采集连续模式 | en:Set Continues Aquisition Mode
             device.Parameters.SetEnumValueByString("AcquisitionMode", "Continuous");
             device.Parameters.SetEnumValueByString("TriggerMode", "Off");
@@ -130,7 +132,7 @@ namespace LineScanInspection.Help
 
 
         public Thread receiveThread;
-        private IFrameOut frameForSave;
+        public IFrameOut frameForSave;
         private static readonly object saveImageLock = new object();
 
         public AppResultHelper<bool> StartGrabbing()
@@ -218,7 +220,7 @@ namespace LineScanInspection.Help
             //停止采集
             device.StreamGrabber.StopGrabbing();
             //关闭设备
-            if(device != null)
+            if (device != null)
             {
                 device.Close();
                 device.Dispose();
@@ -227,11 +229,127 @@ namespace LineScanInspection.Help
 
 
         }
+        /// 尝试将通用图像对象转换为 Halcon 图像对象
+        /// </summary>
+        /// <param name="image">输入的原始图像对象（包含像素数据、宽高、像素格式等信息）</param>
+        /// <param name="halconImage">输出：转换成功后的 Halcon 图像对象</param>
+        /// <returns>转换成功返回 true，失败/不支持的格式返回 false</returns>
+        public bool TryCreateHalconImage(IImage image, out HObject halconImage)
+        {
+            // 初始化输出的 Halcon 图像为 null
+            halconImage = null;
+
+            // 校验：图像对象为空 或 像素数据指针为空 → 无法转换，直接返回失败
+            if (image == null || image.PixelDataPtr == IntPtr.Zero)
+            {
+                return false;
+            }
+
+            // 获取图像的宽和高（强制转换为 int 类型）
+            int width = (int)image.Width;
+            int height = (int)image.Height;
+
+            switch (image.PixelType)
+            {
+                case MvGvspPixelType.PixelType_Gvsp_Mono8:
+                case MvGvspPixelType.PixelType_Gvsp_BayerGR8:
+                case MvGvspPixelType.PixelType_Gvsp_BayerRG8:
+                case MvGvspPixelType.PixelType_Gvsp_BayerGB8:
+                case MvGvspPixelType.PixelType_Gvsp_BayerBG8:
+                case MvGvspPixelType.PixelType_Gvsp_BayerRBGG8:
+                    /*
+                         2. 每个参数到底什么意思？
+                        ① out HObject halconImage
+                        输出参数
+                        函数执行成功后，会自动创建一个 Halcon 图像，并赋值给这个变量
+                        你后面才能用它显示、处理、保存
+                        ② "byte" → 最重要！
+                        表示每个像素的数据类型：
+                        byte = 8 位无符号整数（0~255）
+                        适用于：
+                        Mono8 黑白相机
+                        BayerGR8 / RG8 / GB8 / BG8 彩色相机
+                        8 位灰度图
+                        如果是 16 位图像，就写 "uint2"。
+                     */
+                    HOperatorSet.GenImage1(
+                        out halconImage,    // 输出：创建好的 Halcon 图像
+                        "byte",             // 图像类型（每个像素占 8 位）
+                        width,              // 图像宽度
+                        height,             // 图像高度
+                        image.PixelDataPtr  // 像素数据的内存指针
+                    );
+                    //HOperatorSet.GenImage1(out halconImage, "byte", width, height, image.PixelDataPtr);
+                    return true;
+
+                case MvGvspPixelType.PixelType_Gvsp_Mono10:
+                case MvGvspPixelType.PixelType_Gvsp_Mono12:
+                case MvGvspPixelType.PixelType_Gvsp_Mono14:
+                case MvGvspPixelType.PixelType_Gvsp_Mono16:
+                case MvGvspPixelType.PixelType_Gvsp_BayerGR10:
+                case MvGvspPixelType.PixelType_Gvsp_BayerRG10:
+                case MvGvspPixelType.PixelType_Gvsp_BayerGB10:
+                case MvGvspPixelType.PixelType_Gvsp_BayerBG10:
+                case MvGvspPixelType.PixelType_Gvsp_BayerGR12:
+                case MvGvspPixelType.PixelType_Gvsp_BayerRG12:
+                case MvGvspPixelType.PixelType_Gvsp_BayerGB12:
+                case MvGvspPixelType.PixelType_Gvsp_BayerBG12:
+                case MvGvspPixelType.PixelType_Gvsp_BayerGR16:
+                case MvGvspPixelType.PixelType_Gvsp_BayerRG16:
+                case MvGvspPixelType.PixelType_Gvsp_BayerGB16:
+                case MvGvspPixelType.PixelType_Gvsp_BayerBG16:
+                    HOperatorSet.GenImage1(out halconImage, "uint2", width, height, image.PixelDataPtr);
+                    return true;
+                case MvGvspPixelType.PixelType_Gvsp_RGB8_Packed:
+                    //GenImageInterleaved = 专门用来创建【RGB/BGR 连续打包】的彩色图像
+                    //RGB8 打包格式（最常见）
+                    HOperatorSet.GenImageInterleaved(
+                        out halconImage,     // 输出：创建好的Halcon彩色图像
+                        image.PixelDataPtr,  // 像素数据内存指针
+                        "rgb",               // ✅ 颜色排列顺序：R → G → B
+                        width,               // 图像宽度
+                        height,              // 图像高度
+                        0,                   // 行对齐：0 = 每行开头无额外填充
+                        "byte",              // 每个通道是8位（0~255）
+                        width,               // 输入图像每行宽度（和宽度一致）
+                        height,              // 输入图像高度
+                        0,                   // 起始偏移：从第0个像素开始
+                        0,                   // 无额外填充
+                        -1,                  // 自动计算通道数
+                        0                    // 保留参数，固定0
+                    );
+                    return true;
+
+                //BGR8 打包格式（OpenCV 常用）
+                case MvGvspPixelType.PixelType_Gvsp_BGR8_Packed:
+                    HOperatorSet.GenImageInterleaved(
+                        out halconImage,
+                        image.PixelDataPtr,
+                        "bgr",               // ✅ 颜色排列顺序：B → G → R
+                        width,
+                        height,
+                        0,
+                        "byte",
+                        width,
+                        height,
+                        0,
+                        0,
+                        -1,
+                        0
+                    );
+                    return true;
+
+                default:
+                    return false;
+            }
+        }
+    
 
         /// <summary>
         /// 反初始化SDK
         /// </summary>
-        ~HKServerHelper() {
+        ~HKServerHelper()
+        {
             SDKSystem.Finalize();
         }
     }

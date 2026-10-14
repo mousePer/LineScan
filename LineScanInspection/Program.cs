@@ -16,7 +16,7 @@ namespace LineScanInspection
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CameraForm());
+            Application.Run(new LogForm());
         }
     }
 }
