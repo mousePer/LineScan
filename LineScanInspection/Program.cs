@@ -16,7 +16,13 @@ namespace LineScanInspection
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LogForm());
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog();
+            if (!loginForm.IsLogin)
+            {
+                return;
+            }
+            Application.Run(new FormMain());
         }
     }
 }

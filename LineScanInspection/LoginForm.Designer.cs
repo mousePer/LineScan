@@ -47,6 +47,7 @@
             this.SubText = "LineScan V0.0.1";
             this.Text = "LoginForm";
             this.Title = "登录";
+            this.OnLogin += new Sunny.UI.UILoginForm.OnLoginHandle(this.LoginForm_OnLogin);
             this.ResumeLayout(false);
 
         }

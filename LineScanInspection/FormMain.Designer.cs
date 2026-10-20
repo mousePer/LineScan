@@ -35,7 +35,7 @@
             this.UiHB_UserManage = new Sunny.UI.UIHeaderButton();
             this.uiHeaderButton1 = new Sunny.UI.UIHeaderButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.uiPanel1 = new Sunny.UI.UIPanel();
+            this.panelMain = new Sunny.UI.UIPanel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -71,6 +71,7 @@
             this.uiHeaderButton5.TabIndex = 1;
             this.uiHeaderButton5.Text = "IO管理";
             this.uiHeaderButton5.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiHeaderButton5.Click += new System.EventHandler(this.uiHeaderButton1_Click);
             // 
             // uiHeaderButton4
             // 
@@ -86,8 +87,10 @@
             this.uiHeaderButton4.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
             this.uiHeaderButton4.Size = new System.Drawing.Size(81, 84);
             this.uiHeaderButton4.TabIndex = 1;
+            this.uiHeaderButton4.Tag = "CountForm";
             this.uiHeaderButton4.Text = "产量管理";
             this.uiHeaderButton4.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiHeaderButton4.Click += new System.EventHandler(this.uiHeaderButton1_Click);
             // 
             // uiHeaderButton3
             // 
@@ -103,8 +106,10 @@
             this.uiHeaderButton3.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
             this.uiHeaderButton3.Size = new System.Drawing.Size(81, 84);
             this.uiHeaderButton3.TabIndex = 1;
+            this.uiHeaderButton3.Tag = "CameraForm";
             this.uiHeaderButton3.Text = "相机管理";
             this.uiHeaderButton3.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiHeaderButton3.Click += new System.EventHandler(this.uiHeaderButton1_Click);
             // 
             // UiHB_UserManage
             // 
@@ -120,8 +125,10 @@
             this.UiHB_UserManage.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
             this.UiHB_UserManage.Size = new System.Drawing.Size(81, 84);
             this.UiHB_UserManage.TabIndex = 1;
+            this.UiHB_UserManage.Tag = "UserForm";
             this.UiHB_UserManage.Text = "用户管理";
             this.UiHB_UserManage.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.UiHB_UserManage.Click += new System.EventHandler(this.uiHeaderButton1_Click);
             // 
             // uiHeaderButton1
             // 
@@ -137,8 +144,10 @@
             this.uiHeaderButton1.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
             this.uiHeaderButton1.Size = new System.Drawing.Size(81, 84);
             this.uiHeaderButton1.TabIndex = 1;
+            this.uiHeaderButton1.Tag = "LogForm";
             this.uiHeaderButton1.Text = "日志管理";
             this.uiHeaderButton1.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiHeaderButton1.Click += new System.EventHandler(this.uiHeaderButton1_Click);
             // 
             // pictureBox1
             // 
@@ -152,24 +161,24 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // uiPanel1
+            // panelMain
             // 
-            this.uiPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiPanel1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiPanel1.Location = new System.Drawing.Point(0, 150);
-            this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.Size = new System.Drawing.Size(1115, 609);
-            this.uiPanel1.TabIndex = 1;
-            this.uiPanel1.Text = "  ";
-            this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.panelMain.Location = new System.Drawing.Point(0, 150);
+            this.panelMain.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panelMain.MinimumSize = new System.Drawing.Size(1, 1);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(1115, 609);
+            this.panelMain.TabIndex = 1;
+            this.panelMain.Text = "  ";
+            this.panelMain.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1115, 759);
-            this.Controls.Add(this.uiPanel1);
+            this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.Name = "FormMain";
@@ -191,7 +200,7 @@
         private Sunny.UI.UIHeaderButton uiHeaderButton4;
         private Sunny.UI.UIHeaderButton uiHeaderButton3;
         private Sunny.UI.UIHeaderButton UiHB_UserManage;
-        private Sunny.UI.UIPanel uiPanel1;
+        private Sunny.UI.UIPanel panelMain;
     }
 }
 

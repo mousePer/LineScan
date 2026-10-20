@@ -303,7 +303,7 @@ namespace LineScanInspection.Help
         /// <param name="hv_WindowHandle">句柄</param>
         /// <param name="upValue">二值化阈值上限</param>
         /// <param name="downValue">二值化阈值下限</param>
-        public void ReadImageOcr(HObject ho_Image, HTuple hv_WindowHandle,int upValue,int downValue)
+        public async Task<AppResultHelper<string>> ReadImageOcr(HObject ho_Image, HTuple hv_WindowHandle, int upValue, int downValue)
         {
             // Local iconic variables 
 
@@ -347,7 +347,7 @@ namespace LineScanInspection.Help
                 //图片、训练文件和模型路径均直接写在代码中。
 
                 //输入：图片路径；输出：Image 图像对象。
-                
+
                 //输入：彩色 Image；输出：GrayImage 灰度图。
                 ho_GrayImage.Dispose();
                 HOperatorSet.Rgb1ToGray(ho_Image, out ho_GrayImage);
@@ -413,9 +413,7 @@ namespace LineScanInspection.Help
                     //throw new HalconException(new HTuple("Expected 7 characters, but segmented ") + hv_NumberCharacters);
                     //结束数量判断。
                     HOperatorSet.DispObj(ho_Characters, hv_WindowHandle);
-
-
-                    return;
+                    return AppResultHelper<string>.Fail("字符数量错误");
                 }
                 //输入：字符区域、原图、字符标签；输出：训练文件。
                 HOperatorSet.WriteOcrTrainf(ho_Characters, ho_GrayImage, ((((((new HTuple("G")).TupleConcat(
@@ -441,8 +439,7 @@ namespace LineScanInspection.Help
                 hv_RecognizedText.Dispose();
                 using (HDevDisposeHelper dh = new HDevDisposeHelper())
                 {
-                    hv_RecognizedText = hv_Classes.TupleJoin(
-                        "");
+                    hv_RecognizedText = hv_Classes.TupleJoin("");
                 }
                 //输入：训练好的分类器；输出：OCR 模型文件。
                 HOperatorSet.WriteOcrClassMlp(hv_OCRHandle, "C:/Users/16348/Desktop/课件/实战/12.omc");
@@ -455,6 +452,8 @@ namespace LineScanInspection.Help
                     hv_Success = new HTuple(hv_RecognizedText.TupleEqual(
                         "GLOSSED"));
                 }
+
+
                 //显示原图。
                 if (HDevWindowStack.IsOpen())
                 {
@@ -513,6 +512,7 @@ namespace LineScanInspection.Help
                         "Verification: " + hv_RecognizedText), "window", 12, 12, "green", "box",
                         "true");
                 }
+                return AppResultHelper<string>.Success(hv_RecognizedText);
             }
             catch (HalconException HDevExpDefaultException)
             {

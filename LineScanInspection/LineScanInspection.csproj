@@ -93,6 +93,12 @@
     <Compile Include="CameraForm.Designer.cs">
       <DependentUpon>CameraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CountForm.Designer.cs">
+      <DependentUpon>CountForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,8 +107,10 @@
     </Compile>
     <Compile Include="entity\AuthorityEntity.cs" />
     <Compile Include="entity\LogEntity.cs" />
+    <Compile Include="entity\ResultCountEntity.cs" />
     <Compile Include="entity\UserAndAuthorityEntity.cs" />
     <Compile Include="entity\UserEntity.cs" />
+    <Compile Include="entity\vo\CountVO.cs" />
     <Compile Include="entity\vo\LogLevelVO.cs" />
     <Compile Include="entity\vo\UserAndAuthorityVO.cs" />
     <Compile Include="FormMain.cs">
@@ -139,6 +147,9 @@
     </Compile>
     <EmbeddedResource Include="CameraForm.resx">
       <DependentUpon>CameraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CountForm.resx">
+      <DependentUpon>CountForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditUserForm.resx">
       <DependentUpon>EditUserForm.cs</DependentUpon>
